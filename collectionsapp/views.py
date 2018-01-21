@@ -11,7 +11,7 @@ def index(request):
 
 def detail(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
-    collection_items = get_list_or_404(CollectionValue.objects.filter(collection_id=collection_id))
+    collection_items = CollectionValue.objects.filter(collection_id=collection_id)
     context = {
         'collection': collection,
         'collection_items': collection_items
