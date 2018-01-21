@@ -1,0 +1,14 @@
+<h2>{{ collection.name }}</h2>
+<p>{{ collection.desc }}</p>
+<small>Założona {{ collection.created }}</small>
+
+<h2>Przedmioty znajdujące się w kolekcji</h2>
+{% if collection_items %}
+    <ul>
+    {% for collection_item in collection_items %}
+        <li><a href="{% url 'collections:item' collection_item.id %}">{{ collection_item.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Ta kolekcja nie zawiera jeszcze przedmiotów.</p>
+{% endif %}

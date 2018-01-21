@@ -1,0 +1,10 @@
+<h1>Lista zdefiniowanych kolekcji</h1>
+{% if collections %}
+    <ul>
+    {% for collection in collections %}
+        <li><a href="{%  url 'collections:detail' collection.id %}">{{ collection.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Brak zdefiniowanych kolekcji.</p>
+{% endif %}
