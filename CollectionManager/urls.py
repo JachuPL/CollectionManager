@@ -17,6 +17,6 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('collections/', include('collectionsapp.urls')),    # bound project to collections url
+    path('', include('collectionsapp.urls')),    # bound project to collections url
     path('admin/', admin.site.urls),
 ]

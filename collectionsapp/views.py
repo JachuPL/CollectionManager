@@ -1,12 +1,13 @@
 from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.http import HttpResponse
+from django.template import RequestContext
 from .models import *
 
 
 def index(request):
-    collections = Collection.objects.all()
-    context = {'collections': collections}
-    return render(request, 'polls/index.html', context)
+	collections = Collection.objects.all()
+	context = {'collections': collections}
+	return render(request, 'polls/index.html', context)
 
 
 def detail(request, collection_id):
