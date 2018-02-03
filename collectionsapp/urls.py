@@ -8,6 +8,6 @@ urlpatterns = [
     # ex: /collections/5/
     path('<int:collection_id>/', views.detail, name='detail'),
     # ex: /collections/item/5
+    path('create_collection/', views.create_collection, name='create_collection'),
     path('item/<int:value_id>/', views.item, name='item'),
-
 ]
