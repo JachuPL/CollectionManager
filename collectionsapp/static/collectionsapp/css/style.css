@@ -18,8 +18,12 @@ body
 	display:block;
 }
 
-.btn.btn-outline-secondary.btn-sm 
+.btn.btn-outline-secondary.btn-sm
 {
 	margin-left:auto;
 	margin-top:1%
+}
+
+a, button, .btn{
+	text-decoration: none;
 }
