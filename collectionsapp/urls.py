@@ -13,4 +13,5 @@ urlpatterns = [
     # ex: /collections/item/5
     path('create_collection/', views.create_collection, name='create_collection'),
     path('item/<int:value_id>/', views.item, name='item'),
+    path('item/<int:value_id>/delete_item/', views.delete_item, name='delete_item'),
 ]

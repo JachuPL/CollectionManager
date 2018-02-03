@@ -68,3 +68,10 @@ def create_item(request, collection_id):
     else:
         form = ItemForm()
     return render(request, 'collections/create_item.html', {"form": form})
+
+
+def delete_item(request, value_id):
+    collection_item = CollectionValue.objects.get(pk=value_id)
+    collection_id = collection_item.collection_id.pk
+    collection_item.delete()
+    return redirect("collections:detail", collection_id=collection_id)

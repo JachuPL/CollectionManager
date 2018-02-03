@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74251324-14d1-4ec2-867d-12d56316695b" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/forms.py" afterPath="$PROJECT_DIR$/collectionsapp/forms.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/templates/collections/detail.html" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/detail.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/urls.py" afterPath="$PROJECT_DIR$/collectionsapp/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/views.py" afterPath="$PROJECT_DIR$/collectionsapp/views.py" />
     </list>
@@ -33,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/collectionsapp/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="374">
-              <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+              <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -49,12 +46,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="form_template.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/form_template.html">
+      <file leaf-file-name="item.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="306">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding>
+                <element signature="e#732#756#0#HTML" expanded="true" />
+                <element signature="e#894#900#0#HTML" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -62,8 +62,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collectionsapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+            <state relative-caret-position="713">
+              <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -86,8 +86,8 @@
       <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24">
-              <caret line="16" column="75" lean-forward="false" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="75" />
+            <state relative-caret-position="272">
+              <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="45" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="e#482#488#0#HTML" expanded="true" />
@@ -131,8 +131,8 @@
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="11" column="81" lean-forward="false" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
+            <state relative-caret-position="204">
+              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -173,12 +173,12 @@
         <option value="$PROJECT_DIR$/collectionsapp/models.py" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/edit_collection.html" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/index.html" />
-        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
         <option value="$PROJECT_DIR$/collectionsapp/forms.py" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/add_item.html" />
-        <option value="$PROJECT_DIR$/collectionsapp/urls.py" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/detail.html" />
+        <option value="$PROJECT_DIR$/collectionsapp/urls.py" />
         <option value="$PROJECT_DIR$/collectionsapp/views.py" />
+        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
       </list>
     </option>
   </component>
@@ -945,14 +945,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="4" lean-forward="false" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/form_template.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -1003,10 +995,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="16" column="75" lean-forward="false" selection-start-line="16" selection-start-column="65" selection-end-line="16" selection-end-column="75" />
+        <state relative-caret-position="272">
+          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="45" />
           <folding>
             <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="e#482#488#0#HTML" expanded="true" />
@@ -1016,26 +1016,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/urls.py">
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="11" column="81" lean-forward="false" selection-start-line="11" selection-start-column="81" selection-end-line="11" selection-end-column="81" />
-          <folding />
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#732#756#0#HTML" expanded="true" />
+            <element signature="e#894#900#0#HTML" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/models.py">
+    <entry file="file://$PROJECT_DIR$/collectionsapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="18" />
+        <state relative-caret-position="204">
+          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="29" column="31" lean-forward="true" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
+        <state relative-caret-position="713">
+          <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>
