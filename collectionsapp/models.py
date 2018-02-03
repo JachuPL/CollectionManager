@@ -22,7 +22,7 @@ class CollectionValue(models.Model):
     added = models.DateField('Data dodania', default=timezone.now())
     date = models.DateField('Data produkcji przedmiotu, np. data wydania książki, rocznik wina itd.')
     desc = models.CharField('Opis przedmiotu', max_length=2000)
-    collection_id = models.ForeignKey(Collection, on_delete=models.DO_NOTHING, verbose_name='Kolekcja')
+    collection_id = models.ForeignKey(Collection, on_delete=models.CASCADE, verbose_name='Kolekcja')
 
     def __str__(self):
         return "%s \"%s\" (%s)" % (self.aggregate, self.name, self.date)

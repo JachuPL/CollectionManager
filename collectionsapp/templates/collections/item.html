@@ -1,0 +1,40 @@
+{% extends "collections/header.html" %}
+
+{% block content %}
+
+<div class="w3-panel w3-leftbar w3-border-blue">
+	<div class="row">
+		<div class="col-sm8">
+			<h2>{{ value.name }}</h2>
+		</div>
+	</div>
+</div>
+<div class="w3-panel w3-leftbar w3-border-yellow">
+    <p>{{ value.aggregate }}</p>
+</div>
+
+<div class="w3-panel w3-leftbar w3-border-green">
+  <p>Data produkcji: {{ value.date }}</p>
+</div>
+
+<div class="w3-panel w3-border w3-round">
+	<p><b>Opis:</b> {{ value.desc }}</p>
+</div>
+
+<small>Dodano {{ value.added }}</small>
+
+<div class="col-sm4">
+     <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
+         {% csrf_token %}
+         <button type="submit" class="btn btn-sm btn-light">
+             <span class="fas fa-edit"></span>&nbsp; Edytuj
+         </button>
+     </form>
+    <form action="{% url 'collections:delete_item' value.id %}" method="post" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-sm btn-danger">
+            <span class="fas fa-trash-alt"></span>&nbsp; Usuń
+        </button>
+    </form>
+</div>
+{% endblock %}
