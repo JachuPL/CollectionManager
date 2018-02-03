@@ -7,7 +7,7 @@
 		<div class="col-sm8">
 			<h2>{{ collection.name }}</h2>
 		</div>
-        {% if user.is_authenticated and user == collection.user %}
+        {% if user == collection.user %}
             <div class="col-sm4">
                 <form action="{% url 'collections:edit_collection' collection.id %}" style="display: inline;">
                     {% csrf_token %}
@@ -52,7 +52,7 @@
   {% endif %}
 </div>
 
-{% if user.is_authenticated and user == collection.user %}
+{% if user == collection.user %}
     <a href="{% url 'collections:create_item' collection.id %}">
         <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot</button>
     </a>
