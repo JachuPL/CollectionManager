@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from .forms import CollectionForm
 
@@ -34,3 +34,8 @@ def create_collection(request):
         "form": form,
     }
     return render(request, 'collections/create_collection.html', context)
+
+def delete_collection(request, collection_id):
+    colletion = Collection.objects.get(pk=collection_id)
+    colletion.delete()
+    return redirect("/")
