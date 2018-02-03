@@ -8,7 +8,12 @@
 			<h2>{{ collection.name }}</h2>
 		</div>
 		<div class="col-sm4">
-			<button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
+            <form action="{% url 'collections:edit_collection' collection.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-light">
+                    <span class="fas fa-edit"></span>&nbsp; Edytuj
+                </button>
+            </form>
             <form action="{% url 'collections:delete_collection' collection.id %}" method="post" style="display: inline;">
                 {% csrf_token %}
                 <button type="submit" class="btn btn-sm btn-danger">
@@ -36,10 +41,6 @@
   <a href="{% url 'collections:item' collection_item.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
     <div class="d-flex w-100 justify-content-between">
       <h5 class="mb-1">{{ collection_item.name }}</h5>
-        <div class="col-sm4">
-            <button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
-            <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Usuń</button>
-        </div>
     </div>
     <h6 class="text-muted">{{collection_item.aggregate}}</h6>
   </a>
