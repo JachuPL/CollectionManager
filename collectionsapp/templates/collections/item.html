@@ -23,8 +23,9 @@
 
 <small>Dodano {{ value.added }}</small>
 
-<div class="col-sm4">
-     <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
+{% if user == value.collection_id.user %}
+    <div class="col-sm4">
+        <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
          {% csrf_token %}
          <button type="submit" class="btn btn-sm btn-light">
              <span class="fas fa-edit"></span>&nbsp; Edytuj
@@ -36,5 +37,6 @@
             <span class="fas fa-trash-alt"></span>&nbsp; Usuń
         </button>
     </form>
-</div>
+    </div>
+{% endif %}
 {% endblock %}

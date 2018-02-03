@@ -7,20 +7,22 @@
 		<div class="col-sm8">
 			<h2>{{ collection.name }}</h2>
 		</div>
-		<div class="col-sm4">
-            <form action="{% url 'collections:edit_collection' collection.id %}" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-light">
-                    <span class="fas fa-edit"></span>&nbsp; Edytuj
-                </button>
-            </form>
-            <form action="{% url 'collections:delete_collection' collection.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-danger">
-                    <span class="fas fa-trash-alt"></span>&nbsp; Usuń
-                </button>
-            </form>
-		</div>
+        {% if user == collection.user %}
+            <div class="col-sm4">
+                <form action="{% url 'collections:edit_collection' collection.id %}" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-light">
+                        <span class="fas fa-edit"></span>&nbsp; Edytuj
+                    </button>
+                </form>
+                <form action="{% url 'collections:delete_collection' collection.id %}" method="post" style="display: inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        <span class="fas fa-trash-alt"></span>&nbsp; Usuń
+                    </button>
+                </form>
+            </div>
+        {% endif %}
 	</div>
 	<small>Dodano {{ collection.created }}</small>
 </div>
@@ -46,14 +48,14 @@
   </a>
   {% endfor %}
   {% else %}
-		<p>Kolekcja nie zawiera przedmiotow.</p>
+		<p>Kolekcja nie zawiera przedmiotów.</p>
   {% endif %}
 </div>
 
-
-<a href="{% url 'collections:create_item' collection.id %}">
-    <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot</button>
-</a>
-
+{% if user == collection.user %}
+    <a href="{% url 'collections:create_item' collection.id %}">
+        <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot</button>
+    </a>
+{% endif %}
 {% endblock %}
 
