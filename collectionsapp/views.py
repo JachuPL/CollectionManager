@@ -75,3 +75,16 @@ def delete_item(request, value_id):
     collection_id = collection_item.collection_id.pk
     collection_item.delete()
     return redirect("collections:detail", collection_id=collection_id)
+
+
+def edit_item(request, value_id):
+    collection_item = get_object_or_404(CollectionValue, pk=value_id)
+    if request.method == "POST":
+        form = ItemForm(request.POST or None, instance=collection_item)
+        if form.is_valid():
+            collection_item = form.save(commit=False)
+            collection_item.save()
+            return redirect('collections:item', value_id=collection_item.pk)
+    else:
+        form = ItemForm(instance=collection_item)
+    return render(request, 'collections/edit_item.html', {"form": form})

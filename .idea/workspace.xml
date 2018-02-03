@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74251324-14d1-4ec2-867d-12d56316695b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db.sqlite3" afterPath="$PROJECT_DIR$/db.sqlite3" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/edit_item.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" afterPath="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/urls.py" afterPath="$PROJECT_DIR$/collectionsapp/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/collectionsapp/views.py" afterPath="$PROJECT_DIR$/collectionsapp/views.py" />
@@ -36,24 +38,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="item.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="493">
+              <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="59" />
               <folding>
-                <element signature="e#732#756#0#HTML" expanded="true" />
-                <element signature="e#894#900#0#HTML" expanded="true" />
+                <element signature="e#613#637#0#HTML" expanded="true" />
+                <element signature="e#772#778#0#HTML" expanded="true" />
+                <element signature="e#896#920#0#HTML" expanded="true" />
+                <element signature="e#1058#1064#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +56,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/collectionsapp/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="713">
-              <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
+            <state relative-caret-position="543">
+              <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
               <folding>
                 <element signature="e#0#64#0" expanded="true" />
               </folding>
@@ -74,8 +68,8 @@
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="54" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -86,8 +80,8 @@
       <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="45" />
+            <state relative-caret-position="170">
+              <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="15" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="e#482#488#0#HTML" expanded="true" />
@@ -98,21 +92,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_collection.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_collection.html">
+      <file leaf-file-name="create_item.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="32" column="14" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="14" />
+            <state relative-caret-position="340">
+              <caret line="20" column="79" lean-forward="false" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_item.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html">
+      <file leaf-file-name="edit_item.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/edit_item.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
+            <state relative-caret-position="289">
+              <caret line="17" column="70" lean-forward="true" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -128,11 +122,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="form_template.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/form_template.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/collectionsapp/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="14" />
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -176,9 +180,11 @@
         <option value="$PROJECT_DIR$/collectionsapp/forms.py" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/add_item.html" />
         <option value="$PROJECT_DIR$/collectionsapp/templates/collections/detail.html" />
+        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html" />
+        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/edit_item.html" />
+        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
         <option value="$PROJECT_DIR$/collectionsapp/urls.py" />
         <option value="$PROJECT_DIR$/collectionsapp/views.py" />
-        <option value="$PROJECT_DIR$/collectionsapp/templates/collections/item.html" />
       </list>
     </option>
   </component>
@@ -623,14 +629,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CollectionManager/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CollectionManager/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -945,22 +943,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/form_template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/edit_collection.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="67" lean-forward="true" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_collection.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -977,24 +959,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="30" lean-forward="true" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1005,8 +969,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/detail.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="45" lean-forward="false" selection-start-line="16" selection-start-column="34" selection-end-line="16" selection-end-column="45" />
+        <state relative-caret-position="170">
+          <caret line="10" column="11" lean-forward="true" selection-start-line="10" selection-start-column="11" selection-end-line="15" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#form#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
             <element signature="e#482#488#0#HTML" expanded="true" />
@@ -1016,29 +980,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/form_template.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="136">
+          <caret line="8" column="12" lean-forward="true" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="54" />
           <folding>
-            <element signature="e#732#756#0#HTML" expanded="true" />
-            <element signature="e#894#900#0#HTML" expanded="true" />
+            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="14" column="14" lean-forward="false" selection-start-line="14" selection-start-column="10" selection-end-line="14" selection-end-column="14" />
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="29" column="59" lean-forward="false" selection-start-line="29" selection-start-column="53" selection-end-line="29" selection-end-column="59" />
+          <folding>
+            <element signature="e#613#637#0#HTML" expanded="true" />
+            <element signature="e#772#778#0#HTML" expanded="true" />
+            <element signature="e#896#920#0#HTML" expanded="true" />
+            <element signature="e#1058#1064#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/edit_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="70" lean-forward="true" selection-start-line="17" selection-start-column="70" selection-end-line="17" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/create_item.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="79" lean-forward="false" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/collectionsapp/templates/collections/edit_collection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="67" lean-forward="true" selection-start-line="19" selection-start-column="67" selection-end-line="19" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/collectionsapp/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="713">
-          <caret line="73" column="61" lean-forward="false" selection-start-line="73" selection-start-column="61" selection-end-line="73" selection-end-column="61" />
+        <state relative-caret-position="543">
+          <caret line="76" column="49" lean-forward="false" selection-start-line="76" selection-start-column="49" selection-end-line="76" selection-end-column="49" />
           <folding>
             <element signature="e#0#64#0" expanded="true" />
           </folding>

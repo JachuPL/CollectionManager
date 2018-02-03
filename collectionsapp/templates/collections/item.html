@@ -24,7 +24,12 @@
 <small>Dodano {{ value.added }}</small>
 
 <div class="col-sm4">
-    <button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
+     <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
+         {% csrf_token %}
+         <button type="submit" class="btn btn-sm btn-light">
+             <span class="fas fa-edit"></span>&nbsp; Edytuj
+         </button>
+     </form>
     <form action="{% url 'collections:delete_item' value.id %}" method="post" style="display: inline;">
         {% csrf_token %}
         <button type="submit" class="btn btn-sm btn-danger">
