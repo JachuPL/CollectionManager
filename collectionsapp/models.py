@@ -1,11 +1,13 @@
 import datetime
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
 
 
 class Collection(models.Model):
+    user = models.ForeignKey(User, default=1, verbose_name='Właściciel', on_delete=models.CASCADE)
     name = models.CharField('Nazwa', max_length=200)
-    created = models.DateField('Data utworzenia', default=timezone.now())
+    created = models.DateField('Data utworzenia', default=timezone.now)
     desc = models.CharField('Opis', max_length=1000)
 
     def __str__(self):
@@ -19,7 +21,7 @@ class Collection(models.Model):
 class CollectionValue(models.Model):
     name = models.CharField('Nazwa', max_length=200)
     aggregate = models.CharField('Agregat (np. autor, zespół)', max_length=200)
-    added = models.DateField('Data dodania', default=timezone.now())
+    added = models.DateField('Data dodania', default=timezone.now)
     date = models.DateField('Data produkcji przedmiotu, np. data wydania książki, rocznik wina itd.')
     desc = models.CharField('Opis przedmiotu', max_length=2000)
     collection_id = models.ForeignKey(Collection, on_delete=models.DO_NOTHING, verbose_name='Kolekcja')

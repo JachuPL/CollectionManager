@@ -19,12 +19,21 @@
 
 <body>
 
-	<nav class="navbar navbar-dark bg-primary justify-content-between" >
+	<nav class="navbar navbar-dark bg-primary justify-content-between">
 	  <a class="navbar-brand" href="/">Menedżer kolekcji</a>
 	  <form class="form-inline">
 		<input class="form-control mr-sm-2" type="search" placeholder="Wpisz frazę do wyszukania" aria-label="Search">
 		<button type="button" class="btn btn-light"><i class="fas fa-search"></i></button>
 	  </form>
+        {% if user.is_authenticated %}
+            <form class="form-inline" action="{% url 'collections:logout' %}">
+                <button type="submit" class="btn btn-default"><i class="fas fa-sign-out-alt"></i>&nbsp;Wyloguj</button>
+            </form>
+        {% else %}
+            <form class="form-inline" action="{% url 'collections:login' %}">
+                <button type="submit" class="btn btn-default"><i class="fas fa-sign-in-alt"></i>&nbsp;Zaloguj</button>
+            </form>
+        {% endif %}
 	</nav>
 
 	{% block content %}

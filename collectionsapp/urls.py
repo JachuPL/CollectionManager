@@ -1,5 +1,4 @@
 from django.urls import path
-from django.conf.urls import url
 from . import views
 
 app_name = 'collections'
@@ -9,5 +8,11 @@ urlpatterns = [
     path('<int:collection_id>/', views.detail, name='detail'),
     # ex: /collections/item/5
     path('item/<int:value_id>/', views.item, name='item'),
+    # ex: /register/
+    path('register/', views.register, name='register'),
+    # ex: /login/
+    path('login/', views.login_user, name='login'),
+    # ex: /logout/
+    path('logout/', views.logout_user, name='logout'),
 
 ]
