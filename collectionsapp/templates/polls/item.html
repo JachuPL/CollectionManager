@@ -1,5 +1,32 @@
-<h1>{{ value.name }}</h1>
-<small>Dodano {{ value.added }}</small>
-<p>Agregat: {{ value.aggregate }}</p>
-<p>Data produkcji: {{ value.date }}</p>
-<p>Opis: {{ value.desc }}</p>
+{% extends "polls\header.html" %}
+
+{% block content %}
+
+<div class="w3-panel w3-leftbar w3-border-blue">
+	<div class="row">
+		<div class="col-sm8">
+			<h2>{{ value.name }}</h2>
+		</div>
+		&nbsp
+		<div class="col-sm4">
+			<button type="button" class="btn btn-outline-secondary btn-sm">Edytuj</button>
+			<button type="button" class="btn btn-outline-secondary btn-sm">Usuń</button>
+		</div>
+		
+	</div>
+	  <small>Dodano {{ value.added }}</small>
+</div>
+
+<div class="w3-panel w3-leftbar w3-border-yellow">
+  <p>Agregat: {{ value.aggregate }}</p>
+</div>
+
+<div class="w3-panel w3-leftbar w3-border-green">
+  <p>Data produkcji: {{ value.date }}</p>
+</div>
+
+<div class="w3-panel w3-border w3-round">
+	<p><b>Opis:</b> {{ value.desc }}</p>
+</div>
+
+{% endblock %}

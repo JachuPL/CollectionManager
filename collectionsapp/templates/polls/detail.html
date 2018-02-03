@@ -1,14 +1,51 @@
-<h2>{{ collection.name }}</h2>
-<p>{{ collection.desc }}</p>
-<small>Założona {{ collection.created }}</small>
+{% extends "polls\header.html" %}
 
-<h2>Przedmioty znajdujące się w kolekcji</h2>
-{% if collection_items %}
-    <ul>
-    {% for collection_item in collection_items %}
-        <li><a href="{% url 'collections:item' collection_item.id %}">{{ collection_item.name }}</a></li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>Ta kolekcja nie zawiera jeszcze przedmiotów.</p>
-{% endif %}
+{% block content %}
+
+<div class="w3-panel w3-leftbar w3-border-blue">
+	<div class="row"> &nbsp
+		<div class="col-sm8">
+			<h2>{{ collection.name }}</h2>
+		</div>
+		&nbsp
+		<div class="col-sm4">
+			<button type="button" class="btn btn-outline-secondary btn-sm">Edytuj</button>
+			<button type="button" class="btn btn-outline-secondary btn-sm">Usuń</button>
+		</div>
+	</div>
+	<small>Dodano {{ collection.created }}</small>
+</div>
+
+<div class="w3-panel w3-border w3-round">
+     <h6><i>{{ collection.desc }}</i></h6>
+</div>
+
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Zawartość</h5>
+    </div> 
+  </a>
+  {% if collection_items %}
+  {% for collection_item in collection_items %}
+  <a href="{% url 'collections:item' collection_item.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">{{ collection_item.name }}</h5>
+	  <h7 class="text-muted">Dodano: {{ collection_item.added }} </h7>
+    </div>
+    <h6 class="text-muted">{{collection_item.aggregate}}</h6>
+  </a>
+  {% endfor %}
+  {% else %}
+		<p>Kolekcja nie zawiera przedmiotow.</p>
+  {% endif %}
+</div>
+
+
+<a href="/{{collection.id}}/addItem/">
+	<button class="btn btn-default" type="submit">+ Dodaj przedmiot</button>
+</a>
+
+{% endblock %}
+

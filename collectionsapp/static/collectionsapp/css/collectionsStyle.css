@@ -1,0 +1,25 @@
+body
+{
+	background-color: #f6f6f6;
+}
+
+.list-group 
+{
+	opacity: 0.75;
+	width: 1000px;
+	margin:0 auto;
+}
+
+.btn.btn-default
+{
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1%;
+	display:block;
+}
+
+.btn.btn-outline-secondary.btn-sm 
+{
+	margin-left:auto;
+	margin-top:1%
+}
