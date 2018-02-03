@@ -1,4 +1,4 @@
-{% extends "polls\header.html" %}
+{% extends "polls/header.html" %}
 	
 {% block content %}
 	&nbsp
@@ -13,7 +13,10 @@
 		  <a href="{% url 'collections:detail' collection.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
 			<div class="d-flex w-100 justify-content-between">
 			  <h5 class="mb-1">{{ collection.name }}</h5>
-			  <h7 class="text-muted">Dodano: {{ collection.created }} </h7>
+                <div class="col-sm4">
+                    <button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
+                    <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Usuń</button>
+                </div>
 			</div>
 			<h6 class="text-muted">{{collection.desc}}</h6>
 		  </a>
@@ -24,7 +27,7 @@
 	</div>
 	
 <a href="/addCollection/">
-	<button class="btn btn-default" type="submit">+ Dodaj kolekcję</button>
+	<button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Dodaj kolekcję</button>
 </a>
 	
 {% endblock %}

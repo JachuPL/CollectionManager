@@ -1,4 +1,4 @@
-{% extends "polls\header.html" %}
+{% extends "polls/header.html" %}
 
 {% block content %}
 
@@ -7,18 +7,10 @@
 		<div class="col-sm8">
 			<h2>{{ value.name }}</h2>
 		</div>
-		&nbsp
-		<div class="col-sm4">
-			<button type="button" class="btn btn-outline-secondary btn-sm">Edytuj</button>
-			<button type="button" class="btn btn-outline-secondary btn-sm">Usuń</button>
-		</div>
-		
 	</div>
-	  <small>Dodano {{ value.added }}</small>
 </div>
-
 <div class="w3-panel w3-leftbar w3-border-yellow">
-  <p>Agregat: {{ value.aggregate }}</p>
+    <p>{{ value.aggregate }}</p>
 </div>
 
 <div class="w3-panel w3-leftbar w3-border-green">
@@ -29,4 +21,10 @@
 	<p><b>Opis:</b> {{ value.desc }}</p>
 </div>
 
+<small>Dodano {{ value.added }}</small>
+
+<div class="col-sm4">
+                    <button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
+                    <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Usuń</button>
+</div>
 {% endblock %}
