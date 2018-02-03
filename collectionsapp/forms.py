@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from .models import *
 
 
 class UserForm(forms.ModelForm):
@@ -12,3 +13,17 @@ class UserForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password']
+
+
+class CollectionForm(forms.ModelForm):
+
+    class Meta:
+        model = Collection
+        fields = ('name', 'desc')
+
+
+class ItemForm(forms.ModelForm):
+
+    class Meta:
+        model = CollectionValue
+        fields = ('name', 'aggregate', 'date', 'desc')
