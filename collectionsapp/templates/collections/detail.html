@@ -31,26 +31,20 @@
                 <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
             </a>
             {% if user == collection.user %}
-                <div class="form-inline btn-group" role="group">
-                    <a class="btn btn-sm btn-warning" href="{% url 'collections:edit_collection' collection.id %}">
-                        <i class="fas fa-edit"></i>&nbsp;Edytuj
-                    </a>
-                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteConfirmation">
-                        <i class="fas fa-trash-alt"></i>&nbsp;Usuń
-                    </button>
-                </div>
-            {% endif %}
-        </div>
-    </div>
-
-    <ul class="list-group get-away">
-        <div>
-            {% if user == collection.user %}
+                <a class="btn btn-sm btn-warning" href="{% url 'collections:edit_collection' collection.id %}">
+                    <i class="fas fa-edit"></i>&nbsp;Edytuj
+                </a>
+                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteConfirmation">
+                    <i class="fas fa-trash-alt"></i>&nbsp;Usuń
+                </button>
                 <a class="btn btn-sm btn-success" href="{% url 'collections:create_item' collection.id %}">
                     <i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot
                 </a>
             {% endif %}
         </div>
+    </div>
+
+    <ul class="list-group get-away">
         <div class="get-away">
             <li class="list-group-item active">
                 <div class="d-flex w-100 justify-content-between">
