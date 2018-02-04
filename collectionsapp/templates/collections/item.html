@@ -2,41 +2,43 @@
 
 {% block content %}
 
-<div class="w3-panel w3-leftbar w3-border-blue">
-	<div class="row">
-		<div class="col-sm8">
-			<h2>{{ value.name }}</h2>
-		</div>
-	</div>
-</div>
-<div class="w3-panel w3-leftbar w3-border-yellow">
-    <p>{{ value.aggregate }}</p>
-</div>
-
-<div class="w3-panel w3-leftbar w3-border-green">
-  <p>Data produkcji: {{ value.date }}</p>
-</div>
-
-<div class="w3-panel w3-border w3-round">
-	<p><b>Opis:</b> {{ value.desc }}</p>
-</div>
-
-<small>Dodano {{ value.added }}</small>
-
-{% if user == value.collection_id.user %}
-    <div class="col-sm4">
-        <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
-         {% csrf_token %}
-         <button type="submit" class="btn btn-sm btn-light">
-             <span class="fas fa-edit"></span>&nbsp; Edytuj
-         </button>
-     </form>
-    <form action="{% url 'collections:delete_item' value.id %}" method="post" style="display: inline;">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-sm btn-danger">
-            <span class="fas fa-trash-alt"></span>&nbsp; Usuń
-        </button>
-    </form>
+    <div class="w3-panel w3-leftbar w3-border-blue">
+        <div>
+            <div class="col-sm8">
+                <h3>Nazwa: {{ value.name }}</h3>
+            </div>
+        </div>
     </div>
-{% endif %}
+    <div class="w3-panel w3-leftbar w3-border-yellow">
+        <h4>Agregat: {{ value.aggregate }}</h4>
+    </div>
+
+    <div class="w3-panel w3-leftbar w3-border-green">
+        <h5>Data wytworzenia: {{ value.date }}</h5>
+    </div>
+
+    <div class="w3-panel w3-border w3-round">
+        <h6><b>Opis:</b> {{ value.desc }}</h6>
+    </div>
+
+    <div class="w3-panel  w3-round">
+        <small>Dodano {{ value.added }}</small>
+    </div>
+
+    {% if user == value.collection_id.user %}
+        <div class="col-sm4">
+            <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-warning">
+                    <span class="fas fa-edit"></span>&nbsp; Edytuj
+                </button>
+            </form>
+            <form action="{% url 'collections:delete_item' value.id %}" method="post" style="display: inline;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-sm btn-danger">
+                    <span class="fas fa-trash-alt"></span>&nbsp; Usuń
+                </button>
+            </form>
+        </div>
+    {% endif %}
 {% endblock %}
