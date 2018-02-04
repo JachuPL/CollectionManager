@@ -22,9 +22,13 @@
                    class="list-group-item list-group-item-action flex-column align-items-start">
                     <h5 class="mb-1">
                         {{ collection.name }}
+                        {% if user == collection.user %}
+                                <span data-toggle="tooltip" data-placement="bottom" title="Ta kolekcja należy do Ciebie."><i class="fas fa-universal-access"></i></span>
+                        {% endif %}
                         {% if collection.is_recently_created %}
                             <span class="badge badge-warning">Nowość</span>
                         {% endif %}
+
                     </h5>
                     <h6 class="text-muted">{{ collection.desc }}</h6>
                 </a>
