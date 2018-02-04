@@ -9,7 +9,9 @@
                     <div class="panel-body">
                         <h3>Logowanie</h3>
                         {% if error_message %}
-                            <p><strong>{{ error_message }}</strong></p>
+                            <div class="alert alert-danger" role="alert">
+                                {{ error_message }}
+                            </div>
                         {% endif %}
                         <form class="form-horizontal" role="form" action="{% url 'collections:login' %}" method="post"
                               enctype="multipart/form-data">
