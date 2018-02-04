@@ -1,37 +1,39 @@
 {% extends "collections/header.html" %}
-	
+
 {% block content %}
-	<div class="list-group">
-	  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
-		<div class="d-flex w-100 justify-content-between">
-		  <h5 class="mb-1">Kolekcje</h5>
-		</div> 
-		  </a>
-		  {% if collections %}
-		  {% for collection in collections %}
-		  <a href="{% url 'collections:detail' collection.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
-			<div class="d-flex w-100 justify-content-between">
-			  <h5 class="mb-1">{{ collection.name }}</h5>
-                {% if user == collection.user %}
-                    <div class="col-sm4">
-                        <button type="button" class="btn btn-sm btn-light"><i class="fas fa-edit"></i>&nbsp;Edytuj</button>
-                        <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i>&nbsp;Usuń</button>
+    <div class="list-group">
+        <a href="/" class="list-group-item list-group-item-action flex-column align-items-start active">
+            <div class="d-flex w-100 justify-content-between">
+                <h5 class="mb-1">Kolekcje</h5>
+            </div>
+        </a>
+        {% if collections %}
+            {% for collection in collections %}
+                <a href="{% url 'collections:detail' collection.id %}"
+                   class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">Nazwa: {{ collection.name }}</h5>
+                        {% if user == collection.user %}
+                            <div class="col-sm4">
+                                <span><i class="fas fa-universal-access fa-2x"></i></span>
+                            </div>
+                        {% endif %}
                     </div>
-                {% endif %}
-			</div>
-			<h6 class="text-muted">{{collection.desc}}</h6>
-		  </a>
-	  {% endfor %}
-	  {% else %}
-			<p>Brak zdefiniowanych kolekcji</p>
-	  {% endif %}
+                    <h6 class="text-muted">Opis: {{ collection.desc }}</h6>
+                </a>
+            {% endfor %}
+        {% else %}
+            <p>Brak zdefiniowanych kolekcji</p>
+        {% endif %}
 
         {% if user.is_authenticated %}
             <a href="{% url 'collections:create_collection' %}">
-                <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp; Dodaj kolekcję</button>
+                <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp; Dodaj
+                    kolekcję
+                </button>
             </a>
         {% endif %}
-	
-	</div>
+
+    </div>
 {% endblock %}
 	
