@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Menedżer kolekcji{% endblock %}</title>
-    {% load staticfiles %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-            crossorigin="anonymous"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded:300,400&amp;subset=latin-ext" rel="stylesheet">
+
+    {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'collectionsapp/css/style.css' %}" type="text/css"/>
+    <link rel="shortcut icon" href="{% static 'collectionsapp/favicon.ico' %}" type="image/png"/>
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="/">Menedżer kolekcji</a>
+        <a class="navbar-brand" href="{% url 'collections:index' %}"><i class="fas fa-archive"></i>&nbsp;Menedżer kolekcji</a>
 
         {% block search %}
         {% endblock %}
 
         {% if user.is_authenticated %}
             <form class="form-inline" action="{% url 'collections:logout' %}">
-                 <button type="submit" class="btn btn-default"><i class="fas fa-sign-out-alt"></i>&nbsp;Wyloguj</button>
+                <span class="text-muted"><i class="fas fa-user"></i>&nbsp;{{ request.user.first_name }}&nbsp;{{ request.user.last_name }}&nbsp;</span>
+                <button type="submit" class="btn btn-sm btn-default"><i class="fas fa-sign-out-alt"></i>&nbsp;Wyloguj</button>
             </form>
         {% else %}
             <form class="form-inline" action="{% url 'collections:login' %}">
-                <button type="submit" class="btn btn-default"><i class="fas fa-sign-in-alt"></i>&nbsp;Zaloguj</button>
+                <button type="submit" class="btn btn-sm btn-default"><i class="fas fa-sign-in-alt"></i>&nbsp;Zaloguj</button>
             </form>
         {% endif %}
     </nav>
 
-{% block content %}
-{% endblock %}
-
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 </body>
 </html>

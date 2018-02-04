@@ -17,6 +17,9 @@ class Collection(models.Model):
         # collection is considered recently created when its no older than 2 weeks
         return self.created >= timezone.now().date() - datetime.timedelta(weeks=2)
 
+    def get_short_desc(self):
+        return self.desc[:250] + "..."
+
 
 class CollectionValue(models.Model):
     name = models.CharField('Nazwa', max_length=200)
@@ -31,5 +34,7 @@ class CollectionValue(models.Model):
 
     def is_new_item(self):
         # item is considered new when it was added no longer than 30 days ago
-        return self.date >= timezone.now().date() - datetime.timedelta(days=30)
+        return self.added >= timezone.now().date() - datetime.timedelta(days=30)
 
+    def get_short_desc(self):
+        return self.desc[:250] + "..."

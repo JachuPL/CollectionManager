@@ -1,17 +1,18 @@
 {% extends 'collections/header.html' %}
 
 {% block content %}
-    <div class="container-fluid">
-
+    <div class="container-fluid get-away">
         <div class="row">
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-7">
                 <div class="panel panel-default">
                     <div class="panel-body">
                         <h3>Logowanie</h3>
                         {% if error_message %}
-                            <p><strong>{{ error_message }}</strong></p>
+                            <div class="alert alert-danger" role="alert">
+                                {{ error_message }}
+                            </div>
                         {% endif %}
-                        <form class="form-horizontal" role="form" action="{% url 'collections:login' %}" method="post"
+                        <form class="form-horizontal get-away" role="form" action="{% url 'collections:login' %}" method="post"
                               enctype="multipart/form-data">
                             {% csrf_token %}
                             <div class="form-group">
@@ -32,18 +33,17 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-success">Zaloguj</button>
+                                    <button type="submit" class="btn btn-sm btn-success">Zaloguj</button>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="panel-footer">
-                        Nie posiadasz konta? <a href="{% url 'collections:register' %}">Kliknij tutaj</a> aby je
+                        Nie posiadasz konta? <a href="{% url 'collections:register' %}" class="font-weight-bold">Kliknij tutaj</a> aby je
                         utworzyć.
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 {% endblock %}

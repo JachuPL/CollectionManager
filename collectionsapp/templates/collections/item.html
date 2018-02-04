@@ -5,40 +5,59 @@
     <div class="w3-panel w3-leftbar w3-border-blue">
         <div>
             <div class="col-sm8">
-                <h3>Nazwa: {{ value.name }}</h3>
+                <h3>{{ value.name }}</h3>
             </div>
         </div>
+        <small>Dodano {{ value.added }}</small>
     </div>
-    <div class="w3-panel w3-leftbar w3-border-yellow">
-        <h4>Agregat: {{ value.aggregate }}</h4>
-    </div>
-
     <div class="w3-panel w3-leftbar w3-border-green">
-        <h5>Data wytworzenia: {{ value.date }}</h5>
+        <h5>Wytworzono {{ value.date }} przez {{ value.aggregate }}</h5>
     </div>
 
     <div class="w3-panel w3-border w3-round">
-        <h6><b>Opis:</b> {{ value.desc }}</h6>
+        <h6>{{ value.desc }}</h6>
     </div>
 
-    <div class="w3-panel  w3-round">
-        <small>Dodano {{ value.added }}</small>
-    </div>
-
-    {% if user == value.collection_id.user %}
-        <div class="col-sm4">
-            <form action="{% url 'collections:edit_item' value.id %}" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-warning">
-                    <span class="fas fa-edit"></span>&nbsp; Edytuj
+    <div class="col-sm4 get-away">
+        <div class="form-inline btn-group" role="group">
+            <a class="btn btn-sm btn-primary" href="{% url 'collections:detail' value.collection_id.id %}">
+                <i class="fas fa-chevron-left"></i>&nbsp;Powrót do kolekcji
+            </a>
+            {% if user == value.collection_id.user %}
+                <a class="btn btn-sm btn-warning" href="{% url 'collections:edit_item' value.id %}">
+                    <i class="fas fa-edit"></i>&nbsp;Edytuj
+                </a>
+                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteConfirmation">
+                    <i class="fas fa-trash-alt"></i>&nbsp;Usuń
                 </button>
-            </form>
-            <form action="{% url 'collections:delete_item' value.id %}" method="post" style="display: inline;">
-                {% csrf_token %}
-                <button type="submit" class="btn btn-sm btn-danger">
-                    <span class="fas fa-trash-alt"></span>&nbsp; Usuń
-                </button>
-            </form>
+            {% endif %}
         </div>
-    {% endif %}
+    </div>
+
+
+    <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Czy na pewno chcesz usunąć {{ value.name }} z&nbsp;kolekcji?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Usunięcie elementu kolekcji jest operacją nieodwracalną. Oznacza to, że element poddany usunięciu nie będą możliwy do odzyskania po zatwierdzeniu tej operacji.
+                </div>
+                <div class="modal-footer">
+
+                    <form class="form-horizontal" role="form" action="{% url 'collections:delete_item' value.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>&nbsp;Usuń
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
