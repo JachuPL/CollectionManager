@@ -11,24 +11,22 @@
 
 {% block content %}
     <div class="list-group">
-        <a href="/" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <a href="{% url 'collections:index' %}" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Kolekcje</h5>
+                <h5 class="mb-1">Kolekcje&nbsp;<span class="badge badge-light">{{ collections|length }}</span></h5>
             </div>
         </a>
         {% if collections %}
             {% for collection in collections %}
                 <a href="{% url 'collections:detail' collection.id %}"
                    class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">Nazwa: {{ collection.name }}</h5>
-                        {% if user == collection.user %}
-                            <div class="col-sm4">
-                                <span><i class="fas fa-universal-access fa-2x"></i></span>
-                            </div>
+                    <h5 class="mb-1">
+                        {{ collection.name }}
+                        {% if collection.is_recently_created %}
+                            <span class="badge badge-warning">Nowość</span>
                         {% endif %}
-                    </div>
-                    <h6 class="text-muted">Opis: {{ collection.desc }}</h6>
+                    </h5>
+                    <h6 class="text-muted">{{ collection.desc }}</h6>
                 </a>
             {% endfor %}
         {% else %}
@@ -36,13 +34,10 @@
         {% endif %}
 
         {% if user.is_authenticated %}
-            <a href="{% url 'collections:create_collection' %}">
-                <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp; Dodaj
-                    kolekcję
-                </button>
+            <a class="btn btn-default btn-success" href="{% url 'collections:create_collection' %}">
+                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;kolekcję
             </a>
         {% endif %}
 
     </div>
 {% endblock %}
-	
