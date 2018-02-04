@@ -60,8 +60,13 @@
             <p>Kolekcja nie zawiera przedmiotów.</p>
         {% endif %}
 
+    </div>
+    <div>
+        <a class="btn btn-primary" href="{% url 'collections:index' %}">
+            <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
+        </a>
         {% if user == collection.user %}
-            <a class="btn btn-default btn-success" href="{% url 'collections:create_item' collection.id %}">
+            <a class="btn btn-success" href="{% url 'collections:create_item' collection.id %}">
                 <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;przedmiot
             </a>
         {% endif %}
