@@ -31,5 +31,5 @@ class CollectionValue(models.Model):
 
     def is_new_item(self):
         # item is considered new when it was added no longer than 30 days ago
-        return self.date >= timezone.now().date() - datetime.timedelta(days=30)
+        return self.added >= timezone.now().date() - datetime.timedelta(days=30)
 
