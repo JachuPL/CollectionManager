@@ -12,37 +12,33 @@
 {% block content %}
     <div class="w3-panel w3-leftbar w3-border-blue">
         <div class="d-flex justify-content-between">
-            <div class="col-sm8">
-                <h3>Nazwa: {{ collection.name }}</h3>
-            </div>
+            <a href="{% url 'collections:detail' collection.id %}">
+                <div class="col-sm8">
+                    <h3>{{ collection.name }}</h3>
+                </div>
+            </a>
             {% if user == collection.user %}
-                <div class="form-inline">
-                    <form action="{% url 'collections:edit_collection' collection.id %}" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-sm btn-warning">
-                            <span class="fas fa-edit"></span>&nbsp; Edytuj
-                        </button>
-                    </form>
-                    <form action="{% url 'collections:delete_collection' collection.id %}" method="post" style="display: inline;">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-sm btn-danger">
-                            <span class="fas fa-trash-alt"></span>&nbsp; Usuń
-                        </button>
-                    </form>
+                <div class="form-inline btn-group" role="group">
+                    <a class="btn btn-sm btn-warning" href="{% url 'collections:edit_collection' collection.id %}">
+                        <i class="fas fa-edit"></i>&nbsp;Edytuj
+                    </a>
+                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteConfirmation">
+                        <i class="fas fa-trash-alt"></i>&nbsp;Usuń
+                    </button>
                 </div>
             {% endif %}
         </div>
-        <small>Dodano {{ collection.created }}</small>
+        <small>Dodano {{ collection.created }} przez {{ user.first_name }} {{ user.last_name }}</small>
     </div>
 
     <div class="w3-panel w3-border w3-round">
-        <h6><b>Opis:</b> {{ collection.desc }}</h6>
+        <h6>{{ collection.desc }}</h6>
     </div>
 
     <div class="list-group">
         <a href="" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Zawartość</h5>
+                <h5 class="mb-1">Zawartość <span class="badge badge-light">{{ collection_items|length }}</span></h5>
             </div>
         </a>
         {% if collection_items %}
@@ -50,21 +46,49 @@
                 <a href="{% url 'collections:item' collection_item.id %}"
                    class="list-group-item list-group-item-action flex-column align-items-start">
                     <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{ collection_item.name }}</h5>
+                        <h5 class="mb-1">
+                            {{ collection_item.name }}
+                            {% if collection_item.is_new_item %}
+                                <span class="badge badge-warning">Nowość</span>
+                            {% endif %}
+                        </h5>
                     </div>
-                    <h6 class="text-muted">{{ collection_item.aggregate }}</h6>
+                    <h6 class="text-muted">{{ collection_item.desc }}</h6>
                 </a>
             {% endfor %}
         {% else %}
             <p>Kolekcja nie zawiera przedmiotów.</p>
         {% endif %}
+
+        {% if user == collection.user %}
+            <a class="btn btn-default btn-success" href="{% url 'collections:create_item' collection.id %}">
+                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;przedmiot
+            </a>
+        {% endif %}
     </div>
 
-    {% if user == collection.user %}
-        <a href="{% url 'collections:create_item' collection.id %}">
-            <button class="btn btn-default btn-success" type="submit"><i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot
-            </button>
-        </a>
-    {% endif %}
+    <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Czy na pewno chcesz usunąć {{ collection.name }}?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Usunięcie kolekcji jest operacją nieodwracalną. Oznacza to, że kolekcja oraz dodane do niej elementy nie będą możliwe do odzyskania po zatwierdzeniu tej operacji.
+                </div>
+                <div class="modal-footer">
+                    <form class="form-horizontal" role="form" action="{% url 'collections:delete_collection' collection.id %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-trash-alt"></i>&nbsp;Usuń
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
-
