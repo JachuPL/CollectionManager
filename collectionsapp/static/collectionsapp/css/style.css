@@ -1,6 +1,7 @@
 body
 {
 	background-color: #f6f6f6;
+	font-family: 'Encode Sans Expanded', sans-serif;
 }
 
 .list-group 
@@ -24,6 +25,10 @@ body
 	margin-top:1%
 }
 
-a, button, .btn{
-	text-decoration: none;
+.inline-form{
+	display: inline;
+}
+
+a:hover{
+	text-decoration:none;
 }
