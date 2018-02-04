@@ -17,6 +17,19 @@
                     <h3>{{ collection.name }}</h3>
                 </div>
             </a>
+        </div>
+        <small>Dodano {{ collection.created }} przez {{ collection.user.first_name }} {{ collection.user.last_name }}</small>
+    </div>
+
+    <div class="w3-panel w3-border w3-round">
+        <h6>{{ collection.desc }}</h6>
+    </div>
+
+    <div class="col-sm4 get-away">
+        <div class="form-inline btn-group" role="group">
+            <a class="btn btn-sm btn-primary" href="{% url 'collections:index' %}">
+                <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
+            </a>
             {% if user == collection.user %}
                 <div class="form-inline btn-group" role="group">
                     <a class="btn btn-sm btn-warning" href="{% url 'collections:edit_collection' collection.id %}">
@@ -28,17 +41,6 @@
                 </div>
             {% endif %}
         </div>
-        <small>Dodano {{ collection.created }} przez {{ collection.user.first_name }} {{ collection.user.last_name }}</small>
-    </div>
-
-    <div class="w3-panel w3-border w3-round">
-        <h6>{{ collection.desc }}</h6>
-    </div>
-
-    <div class="get-away">
-        <a class="btn btn-sm btn-primary" href="{% url 'collections:index' %}">
-            <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
-        </a>
     </div>
 
     <ul class="list-group">
