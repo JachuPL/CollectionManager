@@ -37,23 +37,22 @@ def login_user(request):
 def register(request):
     if request.user.is_authenticated:
         return redirect('collections:index')
-
-    form = UserForm(request.POST)
-    if form.is_valid():
-        user = form.save(commit=False)
-        username = form.cleaned_data['username']
-        password = form.cleaned_data['password']
-        user.set_password(password)
-        user.save()
-        user = authenticate(username=username, password=password)
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect('collections:index')
-    context = {
-        "form": form,
-    }
-    return render(request, 'collections/register.html', context)
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user.set_password(password)
+            user.save()
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return redirect('collections:index')
+    else:
+        form = UserForm()
+    return render(request, 'collections/register.html', {"form": form})
 
 
 def index(request):
