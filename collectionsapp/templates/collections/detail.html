@@ -36,6 +36,17 @@
     </div>
 
     <div class="list-group">
+        <div>
+            <a class="btn btn-primary" href="{% url 'collections:index' %}">
+                <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
+            </a>
+            {% if user == collection.user %}
+                <a class="btn btn-success" href="{% url 'collections:create_item' collection.id %}">
+                    <i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot
+                </a>
+            {% endif %}
+        </div>
+        <br>
         <a href="" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Zawartość <span class="badge badge-light">{{ collection_items|length }}</span></h5>
@@ -61,17 +72,6 @@
         {% endif %}
 
     </div>
-    <div>
-        <a class="btn btn-primary" href="{% url 'collections:index' %}">
-            <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
-        </a>
-        {% if user == collection.user %}
-            <a class="btn btn-success" href="{% url 'collections:create_item' collection.id %}">
-                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;przedmiot
-            </a>
-        {% endif %}
-    </div>
-
     <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">

@@ -11,37 +11,40 @@
 
 {% block content %}
     <div class="list-group">
+        <div>
+        {% if user.is_authenticated %}
+            <a class="btn btn-success" href="{% url 'collections:create_collection' %}">
+                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;kolekcję
+            </a>
+        {% endif %}
+        </div>
+        <br>
         <a href="{% url 'collections:index' %}" class="list-group-item list-group-item-action flex-column align-items-start active">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">Kolekcje&nbsp;<span class="badge badge-light">{{ collections|length }}</span></h5>
             </div>
         </a>
+
         {% if collections %}
             {% for collection in collections %}
-                <a href="{% url 'collections:detail' collection.id %}"
-                   class="list-group-item list-group-item-action flex-column align-items-start">
-                    <h5 class="mb-1">
-                        {{ collection.name }}
-                        {% if user == collection.user %}
-                                <span data-toggle="tooltip" data-placement="bottom" title="Ta kolekcja należy do Ciebie."><i class="fas fa-universal-access"></i></span>
-                        {% endif %}
-                        {% if collection.is_recently_created %}
-                            <span class="badge badge-warning">Nowość</span>
-                        {% endif %}
-
-                    </h5>
+                <a href="{% url 'collections:detail' collection.id %}" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{ collection.name }}
+                            {% if collection.is_recently_created %}
+                                <span class="badge badge-warning">Nowość</span>
+                            {% endif %}
+                        </h5>
+                        <h2 class="mb-1 col-sm4">
+                            {% if user == collection.user %}
+                                <span data-toggle="tooltip" title="Ta kolekcja należy do Ciebie."><i class="fas fa-universal-access"></i></span>
+                            {% endif %}
+                        </h2>
+                    </div>
                     <h6 class="text-muted">{{ collection.desc }}</h6>
                 </a>
             {% endfor %}
         {% else %}
             <p>Brak zdefiniowanych kolekcji</p>
         {% endif %}
-
-        {% if user.is_authenticated %}
-            <a class="btn btn-default btn-success" href="{% url 'collections:create_collection' %}">
-                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;kolekcję
-            </a>
-        {% endif %}
-
     </div>
 {% endblock %}
