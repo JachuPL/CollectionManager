@@ -10,42 +10,43 @@
 {% endblock %}
 
 {% block content %}
-    <div>
-        {% if user.is_authenticated %}
-            <a class="btn btn-success" href="{% url 'collections:create_collection' %}">
-                <i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;kolekcję
-            </a>
-        {% endif %}
-    </div>
     <ul class="list-group">
-        <li class="list-group-item active">
-            <a href="{% url 'collections:index' %}" >
-                <h5 class="mb-1">Kolekcje&nbsp;<span class="badge badge-light">{{ collections|length }}</span></h5>
-            </a>
-        </li>
-
-        {% if collections %}
-            {% for collection in collections %}
-                <li class="list-group-item">
-                    <a href="{% url 'collections:detail' collection.id %}">
-                        <div class="d-flex justify-content-between">
-                            <h5 class="mb-1">{{ collection.name }}
-                                {% if collection.is_recently_created %}
-                                    <span class="badge badge-warning">Nowość</span>
-                                {% endif %}
-                            </h5>
-                            <h2 class="mb-1 col-sm4">
-                                {% if user == collection.user %}
-                                    <span data-toggle="tooltip" title="Ta kolekcja należy do Ciebie."><i class="fas fa-universal-access"></i></span>
-                                {% endif %}
-                            </h2>
-                        </div>
-                        <h6 class="text-muted">{{ collection.desc }}</h6>
-                    </a>
-                </li>
-            {% endfor %}
-        {% else %}
-            <li>Brak zdefiniowanych kolekcji</li>
+        {% if user.is_authenticated %}
+            <div class="get-away">
+                <a class="btn btn-success" href="{% url 'collections:create_collection' %}"><i class="fas fa-plus"></i>&nbsp;Dodaj&nbsp;kolekcję
+                </a>
+            </div>
         {% endif %}
+        <div class="get-away">
+            <li class="list-group-item active">
+                <a href="{% url 'collections:index' %}" >
+                    <h5 class="mb-1">Kolekcje&nbsp;<span class="badge badge-light">{{ collections|length }}</span></h5>
+                </a>
+            </li>
+
+            {% if collections %}
+                {% for collection in collections %}
+                    <li class="list-group-item">
+                        <a href="{% url 'collections:detail' collection.id %}">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mb-1">{{ collection.name }}
+                                    {% if collection.is_recently_created %}
+                                        <span class="badge badge-warning">Nowość</span>
+                                    {% endif %}
+                                </h5>
+                                <h2 class="mb-1 col-sm4">
+                                    {% if user == collection.user %}
+                                        <span data-toggle="tooltip" title="Ta kolekcja należy do Ciebie."><i class="fas fa-universal-access"></i></span>
+                                    {% endif %}
+                                </h2>
+                            </div>
+                            <h6 class="text-muted">{{ collection.desc }}</h6>
+                        </a>
+                    </li>
+                {% endfor %}
+            {% else %}
+                <li>Brak zdefiniowanych kolekcji</li>
+            {% endif %}
+        </div>
     </ul>
 {% endblock %}

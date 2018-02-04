@@ -36,7 +36,7 @@
     </div>
 
     <div class="list-group">
-        <div>
+        <div class="get-away">
             <a class="btn btn-primary" href="{% url 'collections:index' %}">
                 <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
             </a>
@@ -46,31 +46,31 @@
                 </a>
             {% endif %}
         </div>
-        <br>
-        <a href="" class="list-group-item list-group-item-action flex-column align-items-start active">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Zawartość <span class="badge badge-light">{{ collection_items|length }}</span></h5>
-            </div>
-        </a>
-        {% if collection_items %}
-            {% for collection_item in collection_items %}
-                <a href="{% url 'collections:item' collection_item.id %}"
-                   class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">
-                            {{ collection_item.name }}
-                            {% if collection_item.is_new_item %}
-                                <span class="badge badge-warning">Nowość</span>
-                            {% endif %}
-                        </h5>
-                    </div>
-                    <h6 class="text-muted">{{ collection_item.desc }}</h6>
-                </a>
-            {% endfor %}
-        {% else %}
-            <p>Kolekcja nie zawiera przedmiotów.</p>
-        {% endif %}
-
+        <div class="get-away">
+            <a href="" class="list-group-item list-group-item-action flex-column align-items-start active">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">Zawartość <span class="badge badge-light">{{ collection_items|length }}</span></h5>
+                </div>
+            </a>
+            {% if collection_items %}
+                {% for collection_item in collection_items %}
+                    <a href="{% url 'collections:item' collection_item.id %}"
+                       class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">
+                                {{ collection_item.name }}
+                                {% if collection_item.is_new_item %}
+                                    <span class="badge badge-warning">Nowość</span>
+                                {% endif %}
+                            </h5>
+                        </div>
+                        <h6 class="text-muted">{{ collection_item.desc }}</h6>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <p>Kolekcja nie zawiera przedmiotów.</p>
+            {% endif %}
+        </div>
     </div>
     <div class="modal fade" id="deleteConfirmation" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
