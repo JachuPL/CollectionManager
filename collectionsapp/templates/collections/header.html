@@ -20,12 +20,8 @@
     <nav class="navbar navbar-dark bg-dark justify-content-between">
         <a class="navbar-brand" href="/">Menedżer kolekcji</a>
 
-        <form class="form-inline" role="search" method="get" action="{% url 'collections:index' %}">
-            <div class="form-group">
-                <input class="form-control mr-sm-2" type="search" placeholder="Nazwa albumu" aria-label="Search" name="q" value="{{ request.GET.q }}">
-            </div>
-            <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
-        </form>
+        {% block search %}
+        {% endblock %}
 
         {% if user.is_authenticated %}
             <form class="form-inline" action="{% url 'collections:logout' %}">

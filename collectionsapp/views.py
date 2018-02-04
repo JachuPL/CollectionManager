@@ -60,13 +60,19 @@ def index(request):
     collections = Collection.objects.all()
     query = request.GET.get("q")
     if query:
-        collections = collections.filter(Q(name=query)).distinct()
+        collections = collections.filter(Q(name__icontains=query) | Q(desc__icontains=query) |
+                                         Q(created__icontains=query)).distinct()
     return render(request, 'collections/index.html', {'collections': collections})
 
 
 def detail(request, collection_id):
     collection = get_object_or_404(Collection, pk=collection_id)
     collection_items = CollectionValue.objects.filter(collection_id=collection_id)
+    query = request.GET.get("q")
+    if query:
+        collection_items = collection_items.filter(Q(name__icontains=query) | Q(desc__icontains=query) |
+                                                   Q(aggregate__icontains=query) | Q(added__icontains=query) |
+                                                   Q(date__icontains=query)).distinct()
     context = {
         'collection': collection,
         'collection_items': collection_items

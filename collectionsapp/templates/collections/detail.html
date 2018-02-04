@@ -1,5 +1,14 @@
 {% extends "collections/header.html" %}
 
+{% block search %}
+    <form class="form-inline" role="search" method="get" action="{% url 'collections:detail' collection.id %}">
+        <div class="form-group">
+            <input class="form-control mr-sm-2" type="search" placeholder="Szukaj przedmiotu" aria-label="Search" name="q" value="{{ request.GET.q }}">
+        </div>
+        <button type="submit" class="btn btn-light"><i class="fas fa-search"></i></button>
+    </form>
+{% endblock %}
+
 {% block content %}
     <div class="w3-panel w3-leftbar w3-border-blue">
         <div class="d-flex justify-content-between">
