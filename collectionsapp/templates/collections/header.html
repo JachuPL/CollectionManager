@@ -14,12 +14,10 @@
     {% load staticfiles %}
     <link rel="stylesheet" href="{% static 'collectionsapp/css/style.css' %}" type="text/css"/>
     <link rel="shortcut icon" href="{% static 'collectionsapp/favicon.ico' %}" type="image/png"/>
-
-
 </head>
 <body>
     <nav class="navbar navbar-dark bg-dark justify-content-between">
-        <a class="navbar-brand" href="{% url 'collections:index' %}">Menedżer kolekcji</a>
+        <a class="navbar-brand" href="{% url 'collections:index' %}"><i class="fas fa-archive"></i>&nbsp;Menedżer kolekcji</a>
 
         {% block search %}
         {% endblock %}
