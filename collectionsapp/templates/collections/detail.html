@@ -35,13 +35,16 @@
         <h6>{{ collection.desc }}</h6>
     </div>
 
+    <div class="get-away">
+        <a class="btn btn-sm btn-primary" href="{% url 'collections:index' %}">
+            <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
+        </a>
+    </div>
+
     <ul class="list-group">
-        <div class="get-away">
-            <a class="btn btn-primary" href="{% url 'collections:index' %}">
-                <i class="fas fa-chevron-left"></i>&nbsp;Powrót do listy
-            </a>
+        <div>
             {% if user == collection.user %}
-                <a class="btn btn-success" href="{% url 'collections:create_item' collection.id %}">
+                <a class="btn btn-sm btn-success" href="{% url 'collections:create_item' collection.id %}">
                     <i class="fas fa-plus"></i>&nbsp;Dodaj przedmiot
                 </a>
             {% endif %}
