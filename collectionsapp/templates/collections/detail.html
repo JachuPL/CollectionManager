@@ -61,7 +61,7 @@
                                     <span class="badge badge-warning">Nowość</span>
                                 {% endif %}
                             </h5>
-                            <h6 class="text-muted">{{ collection_item.desc }}</h6>
+                            <h6 class="text-muted">{{ collection_item.get_short_desc }}</h6>
                         </a>
                     </li>
                 {% endfor %}
