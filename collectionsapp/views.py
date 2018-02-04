@@ -97,10 +97,11 @@ def create_collection(request):
 
 def delete_collection(request, collection_id):
     if request.user.is_authenticated:
-        collection = Collection.objects.get(pk=collection_id)
-        if request.user == collection.user:
-            collection.delete()
-    return redirect("/")
+        if request.method == "POST":
+            collection = Collection.objects.get(pk=collection_id)
+            if request.user == collection.user:
+                collection.delete()
+    return redirect("collections:index")
 
 
 def edit_collection(request, collection_id):
@@ -149,11 +150,13 @@ def create_item(request, collection_id):
 
 
 def delete_item(request, value_id):
+    collection_item = CollectionValue.objects.get(pk=value_id)
+    collection_id = collection_item.collection_id.pk
+
     if request.user.is_authenticated:
-        collection_item = CollectionValue.objects.get(pk=value_id)
-        if request.user == collection_item.collection_id:
-            collection_id = collection_item.collection_id.pk
-            collection_item.delete()
+        if request.user == collection_item.collection_id.user:
+            if request.method == "POST":
+                collection_item.delete()
     return redirect("collections:detail", collection_id=collection_id)
 
 
