@@ -60,6 +60,9 @@
                     <li class="list-group-item">
                         <a href="{% url 'collections:item' collection_item.id %}">
                             <h5 class="mb-1">
+                                {% if collection_item.collectionValue_logo %}
+                                    <img class="image-small" src="{{ collection_item.collectionValue_logo.url }}">
+                                {% endif %}
                                 {{ collection_item.name }}
                                 {% if collection_item.is_new_item %}
                                     <span class="badge badge-warning">Nowość</span>

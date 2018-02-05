@@ -30,7 +30,8 @@ class ItemForm(forms.ModelForm):
     desc = forms.CharField(min_length=1, max_length=1900, required=True, label="Opis przedmiotu", widget=forms.Textarea())
     aggregate = forms.CharField(min_length=1, max_length=150, required=True, label="Agregat")
     date = forms.CharField(label="Data utworzenia", required=True, widget=forms.TextInput(attrs={'placeholder':'YYYY-MM-DD'}))
+    collectionValue_logo = forms.FileField(label="Zdjęcie kolekcji", required=False)
 
     class Meta:
         model = CollectionValue
-        fields = ('name', 'aggregate', 'date', 'desc')
+        fields = ('name', 'aggregate', 'date', 'collectionValue_logo','desc')
