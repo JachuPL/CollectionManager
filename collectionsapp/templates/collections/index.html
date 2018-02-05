@@ -29,7 +29,11 @@
                     <li class="list-group-item">
                         <a href="{% url 'collections:detail' collection.id %}">
                             <div class="d-flex justify-content-between">
-                                <h5 class="mb-1">{{ collection.name }}
+                                <h5 class="mb-1">
+                                    {% if collection.collection_logo %}
+                                        <img class="image-small" src="{{ collection.collection_logo.url }}">
+                                    {% endif %}
+                                    {{ collection.name }}
                                     {% if collection.is_recently_created %}
                                         <span class="badge badge-warning">Nowość</span>
                                     {% endif %}

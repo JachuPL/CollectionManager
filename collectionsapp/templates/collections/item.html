@@ -5,6 +5,9 @@
     <div class="w3-panel w3-leftbar w3-border-blue">
         <div>
             <div class="col-sm8">
+                {% if value.collectionValue_logo %}
+                    <img class="image-size" src="{{ value.collectionValue_logo.url }}">
+                {% endif %}
                 <h3>{{ value.name }}</h3>
             </div>
         </div>

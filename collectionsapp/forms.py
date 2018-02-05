@@ -18,10 +18,11 @@ class UserForm(forms.ModelForm):
 class CollectionForm(forms.ModelForm):
     name = forms.CharField(min_length=1, max_length=150, required=True, label="Nazwa kolekcji")
     desc = forms.CharField(min_length=1, max_length=900, required=True, label="Opis kolekcji", widget=forms.Textarea())
+    collection_logo = forms.FileField(label="Zdjęcie kolekcji", required=False)
 
     class Meta:
         model = Collection
-        fields = ('name', 'desc')
+        fields = ('name', 'collection_logo', 'desc')
 
 
 class ItemForm(forms.ModelForm):
@@ -29,7 +30,8 @@ class ItemForm(forms.ModelForm):
     desc = forms.CharField(min_length=1, max_length=1900, required=True, label="Opis przedmiotu", widget=forms.Textarea())
     aggregate = forms.CharField(min_length=1, max_length=150, required=True, label="Agregat")
     date = forms.CharField(label="Data utworzenia", required=True, widget=forms.TextInput(attrs={'placeholder':'YYYY-MM-DD'}))
+    collectionValue_logo = forms.FileField(label="Zdjęcie kolekcji", required=False)
 
     class Meta:
         model = CollectionValue
-        fields = ('name', 'aggregate', 'date', 'desc')
+        fields = ('name', 'aggregate', 'date', 'collectionValue_logo','desc')

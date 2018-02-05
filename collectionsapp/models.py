@@ -9,6 +9,7 @@ class Collection(models.Model):
     name = models.CharField('Nazwa', max_length=200)
     created = models.DateField('Data utworzenia', default=timezone.now)
     desc = models.CharField('Opis', max_length=1000)
+    collection_logo = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return "%s: %s" % (self.name, self.desc)
@@ -28,6 +29,7 @@ class CollectionValue(models.Model):
     date = models.DateField('Data produkcji przedmiotu, np. data wydania książki, rocznik wina itd.')
     desc = models.CharField('Opis przedmiotu', max_length=2000)
     collection_id = models.ForeignKey(Collection, on_delete=models.CASCADE, verbose_name='Kolekcja')
+    collectionValue_logo = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return "%s \"%s\" (%s)" % (self.aggregate, self.name, self.date)

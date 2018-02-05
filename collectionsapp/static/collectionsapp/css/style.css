@@ -36,3 +36,24 @@ a:hover{
 .get-away{
 	margin-top: 20px;
 }
+
+.image-size{
+	width: 150px;
+	height: 150px;
+}
+
+.image-small{
+	height: 50px;
+	width: 50px;
+}
+
+main{
+	margin-bottom: 50px;
+}
+
+footer{
+	background-color: #E6E6E6;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}
