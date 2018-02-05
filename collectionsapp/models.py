@@ -9,6 +9,7 @@ class Collection(models.Model):
     name = models.CharField('Nazwa', max_length=200)
     created = models.DateField('Data utworzenia', default=timezone.now)
     desc = models.CharField('Opis', max_length=1000)
+    collection_logo = models.FileField(null=True, blank=True)
 
     def __str__(self):
         return "%s: %s" % (self.name, self.desc)

@@ -13,9 +13,13 @@
     <div class="w3-panel w3-leftbar w3-border-blue">
         <div class="d-flex justify-content-between">
             <a href="{% url 'collections:detail' collection.id %}">
+                {% if collection.collection_logo %}
+                    <img class="image-size" src="{{ collection.collection_logo.url }}">
+                {% endif %}
                 <div class="col-sm8">
                     <h3>{{ collection.name }}</h3>
                 </div>
+
             </a>
         </div>
         <small>Dodano {{ collection.created }} przez {{ collection.user.first_name }} {{ collection.user.last_name }}</small>

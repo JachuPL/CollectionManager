@@ -18,10 +18,11 @@ class UserForm(forms.ModelForm):
 class CollectionForm(forms.ModelForm):
     name = forms.CharField(min_length=1, max_length=150, required=True, label="Nazwa kolekcji")
     desc = forms.CharField(min_length=1, max_length=900, required=True, label="Opis kolekcji", widget=forms.Textarea())
+    collection_logo = forms.FileField(label="Zdjęcie kolekcji", required=False)
 
     class Meta:
         model = Collection
-        fields = ('name', 'desc')
+        fields = ('name', 'collection_logo', 'desc')
 
 
 class ItemForm(forms.ModelForm):

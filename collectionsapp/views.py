@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import *
 from django.db.models import Q
 
+IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
 
 def logout_user(request):
     if request.user.is_authenticated:
@@ -82,15 +83,23 @@ def detail(request, collection_id):
 def create_collection(request):
     if not request.user.is_authenticated:
         return redirect('collections:login')
-    if request.method == "POST":
-        form = CollectionForm(request.POST)
-        if form.is_valid():
-            collection = form.save(commit=False)
-            collection.user = request.user
-            collection.save()
-            return redirect('collections:detail', collection_id=collection.pk)
-    else:
-        form = CollectionForm()
+    form = CollectionForm(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        collection = form.save(commit=False)
+        collection.user = request.user
+        collection.collection_logo = request.FILES.get('collection_logo', None)
+        if collection.collection_logo:
+            file_type = collection.collection_logo.url.split('.')[-1]
+            file_type = file_type.lower()
+            if file_type not in IMAGE_FILE_TYPES:
+                context = {
+                    'collection': collection,
+                    'form': form,
+                    'error_message': 'Image file must be PNG, JPG, or JPEG',
+                }
+                return render(request, 'collections/create_collection.html', context)
+        collection.save()
+        return redirect('collections:detail', collection_id=collection.pk)
     return render(request, 'collections/create_collection.html', {"form": form})
 
 
@@ -111,14 +120,22 @@ def edit_collection(request, collection_id):
     if not request.user == collection.user:
         return redirect('collections:index')
 
-    if request.method == "POST":
-        form = CollectionForm(request.POST or None, instance=collection)
-        if form.is_valid():
-            collection = form.save(commit=False)
-            collection.save()
-            return redirect('collections:detail', collection_id=collection.pk)
-    else:
-        form = CollectionForm(instance=collection)
+    form = CollectionForm(request.POST or None, request.FILES or None, instance=collection)
+    if form.is_valid():
+        collection = form.save(commit=False)
+        collection.collection_logo = request.FILES.get('collection_logo', None)
+        if collection.collection_logo:
+            file_type = collection.collection_logo.url.split('.')[-1]
+            file_type = file_type.lower()
+            if file_type not in IMAGE_FILE_TYPES:
+                context = {
+                    'collection': collection,
+                    'form': form,
+                    'error_message': 'Image file must be PNG, JPG, or JPEG',
+                }
+                return render(request, 'collections/create_collection.html', context)
+        collection.save()
+        return redirect('collections:detail', collection_id=collection.pk)
     return render(request, 'collections/edit_collection.html', {"form": form})
 
 
