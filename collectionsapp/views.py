@@ -105,8 +105,6 @@ def delete_collection(request, collection_id):
         if request.method == "POST":
             collection = Collection.objects.get(pk=collection_id)
             if request.user == collection.user:
-                collection.collection_logo.delete()
-                collection.collection_logo = None
                 collection.delete()
     return redirect("collections:index")
 
@@ -179,8 +177,6 @@ def delete_item(request, value_id):
     if request.user.is_authenticated:
         if request.user == collection_item.collection_id.user:
             if request.method == "POST":
-                collection_item.collectionValue_logo.delete()
-                collection_item.collectionValue_logo = None
                 collection_item.delete()
     return redirect("collections:detail", collection_id=collection_id)
 
